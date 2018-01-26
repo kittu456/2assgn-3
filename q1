@@ -80,3 +80,65 @@ class doublelist{
                           node*temp = new node;
                           temp = head;
                           int i =0;
+                          while(temp->next!=NULL){
+				i++;
+				temp = temp->next;
+				
+			}
+			cout<<"Number of items is = "<<i<<endl;
+		}
+		void display(){
+			node*temp = new node;
+			temp = head;
+			while(temp->next!=NULL){
+				cout<<temp<<"->";
+				temp = temp->next;
+			}
+		}
+};
+int main(){
+	list ob;
+	int in,cond = 0;
+	while(cond = 0){
+		cout<<"Enter 1 to add node, enter 2 to insert node at position, enter 3 to delete node, enter 4 to delete node at position, enter 5 to count items in list, enter 6 to display items in list,enter 7 to exit\n";
+		cin>>in;
+		switch(in){
+			case 1: 
+			int val = 0;
+			cout<<"Enter value of node\n";
+			cin>>val;
+			ob.insert(val);
+			break;
+			case 2:
+				int va = 0;
+				cout<<"Enter value\n";
+				cin>>va;
+				int p = 0;
+				cout<<"Enter position\n";
+				cin>>p;
+				ob.insertAt(va,p);
+				break;
+				case 3:
+					ob.Delete();
+					break;
+					case 4:
+						int po= 0;
+						cout<<"Enter position\n";
+						cin>>po;
+						ob.DeleteAt(po);
+						break;
+						case 5:
+							ob.countItems();
+							break;
+							case 6:
+								ob.display();
+								break;
+								case 7;
+								i = 1;
+								break;
+								default:
+									cout<<"Invalid entry\n";
+									
+		}
+	}
+}
