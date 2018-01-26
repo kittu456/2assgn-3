@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+struct node{
+	int data;
+	node*next;
+};
+class list{
+	node*head;
+	node*tail;
+	public:
+		list(){
+			head = NULL;
+			tail = NULL;
+		}
+		void insert(int value){
+			node*temp = new node;
+			node*beg = new node;
+			temp->data = value;
+			if(head == NULL){
+				head = temp;
+				tail = temp;
+				temp->next = NULL;
+			}
+			else
+			{
+				beg = head;
+				tail->next = temp;
+				temp->next = beg;
+				tail = temp;
+				
+			}
+			void insertAt(int value,int pos){
+			node*temp = new node;
+			temp->data = value;
+			int i = 0;
+			node*curr = new node;
+			node*pre = new node;
+			curr = head;
+			while(i<pos){
+				pre = curr;
+				curr=curr->next;
+				i++;
+				if(curr->next == head)
+				{
+					cout<<"Position does not exist\n";
+					break;
+				}
+			}
+			pre->next = temp;
+			temp->next = curr;
+		}
+		void Delete(){
+			node*beg = new node;
+			beg = head;
+			node*curr = new node;
+			node*prev = new node;
+			curr = head;
+			while(curr->next!=head){
+				prev = curr;
+				curr = curr->next;
+			}
+			delete curr;
+			prev->next = beg;
+		}
+		void DeleteAt(int pos){
+			node*pre = new node;
+			node*curr = new node;
+			curr = head;
+			int i = 0;
+			while(i<pos){
+				pre = curr;
+				curr = curr->next;
+				i++;
+			}
+			pre->next = curr->next;
+			delete curr;
+		
+		}
+		void countItems(){
+			int i = 0;
+			node*temp = new node;
+			temp = head;
+			while(temp->next!=head){
+				i++;
+				temp = temp->next;
+			}
+			cout<<"Number of elements in the list are = "<<i<<endl
+		}
+		void display(){
+			node*temp = new node;
+			temp = head;
+			while(temp->next!=head){
+				cout<<temp->data<<"->";
+				temp = temp->next;
+			}
+		}
+};
+
+int main(){
+	list ob;
+	
+}
